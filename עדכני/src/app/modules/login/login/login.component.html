@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+</head>
+
+<body>
+  <p-card header="ברוך הבא" subheader="אנא הכנס את פרטי המשתמש שלך..." [style]="{width: '40vw'}"
+    styleClass="p-card-shadow">
+    <ng-template pTemplate="header">
+      <img alt="לוגו" width="200" height="160" src="../../../assets/lll.png">
+    </ng-template>
+    <div [formGroup]="loginForm">
+      <span class="p-float-label label p-mt-4">
+        <p-message *ngIf="loginForm.controls['user_name'].errors?.['required'] && loginForm.controls['user_name'].touched" severity="error" text="שדה חובה"></p-message><br>
+        <input type="text" id="user_name" pInputText formControlName="user_name" />
+        <label for="user_name">שם משתמש</label>
+      </span>
+      <span class="p-float-label label p-mt-4" for="password">
+        <!-- לשים לב אם רוצים להוסיף עין צריך לשנות את
+      toggleMask="true"
+      ולשנות את המיקום שיהיה בשמאל -->
+        <!-- /* *ngIf="password===''" */ -->
+        <p-message *ngIf="loginForm.controls['password'].errors?.['required'] && !loginForm.controls['password'].untouched" severity="error" text="שדה חובה"></p-message><br>
+        <p-message *ngIf="loginForm.controls['password'].errors?.['minLength'] && !loginForm.controls['password'].untouched" severity="error" text="אורך מינימלי 4 תווים"></p-message><br>
+        <p-password id="password" formControlName="password" [toggleMask]="false" [feedback]="false"></p-password>
+        <label>סיסמא</label>
+      </span>
+    </div>
+    <ng-template pTemplate="footer">
+      <div>
+        <!-- אמורים לבטל/לעשות שהקישור ישלח אכן הודעה למערכת -->
+        <a href="" id="newUser">אין לך עדיין שם משתמש? לחץ כאן לקבלת קישור ממנהלת הגן</a>
+      </div>
+      <button pButton pRipple type="button" class="connectBtn" label="התחבר" [disabled]="loginForm.invalid" (click)="login()"></button>
+    </ng-template>
+  </p-card>
+</body>
+
+</html>

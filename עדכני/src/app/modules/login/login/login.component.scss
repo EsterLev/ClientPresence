@@ -1,0 +1,33 @@
+body {
+    text-align:-webkit-center !important;
+    direction:rtl !important;
+    margin-top: 15vh !important;
+}
+.p-float-label {
+    position: sticky !important;
+    direction: rtl !important;
+    text-align: right !important;
+    display: inline-flex !important;
+    margin:15px !important;
+}
+
+.p-float-label > label{
+    color: #e42c66;
+    direction: rtl !important;
+    right: 0 !important;
+    padding-right: 10px;
+}
+
+.connectBtn{
+    border:1px solid #e42c66 !important ;
+    background: #e42c66 !important;
+}
+.label{
+    direction: ltr !important;
+}
+div > #newUser{
+    padding: 4px;
+}
+#newUser{
+    color: #4e9bd4;
+}

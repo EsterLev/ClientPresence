@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="card">
+        <h5>טעינת קובץ XL עם פרטי התלמידים והוריהם</h5>
+        <p-fileUpload name="demo[]" [customUpload]=true (uploadHandler)="onUpload($event)" [maxFileSize]=1000000 [multiple]=true
+            accept="image/*">
+            <ng-template pTemplate="content">
+                <ul *ngIf="uploadedFiles.length">
+                    <li *ngFor="let file of uploadedFiles">{{file.name}} - {{file.size}} bytes</li>
+                </ul>
+            </ng-template>
+        </p-fileUpload>
+    </div>
+</body>
+
+</html>
